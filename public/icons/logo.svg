@@ -27,8 +27,8 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="px"
      inkscape:zoom="10.70449"
-     inkscape:cx="10.743156"
-     inkscape:cy="-0.79405935"
+     inkscape:cx="10.696446"
+     inkscape:cy="-0.79405932"
      inkscape:window-width="1920"
      inkscape:window-height="986"
      inkscape:window-x="-11"
@@ -61,7 +61,7 @@
      id="layer1"
      transform="translate(-48.606068,-84.235687)">
     <rect
-       style="fill:#030080;fill-opacity:1;stroke:#000000;stroke-width:0"
+       style="fill:#030080;fill-opacity:0;stroke:#000000;stroke-width:0"
        id="rect1"
        width="9.3317671"
        height="5.4635444"
@@ -70,23 +70,13 @@
        ry="0.49487421" />
     <path
        style="fill:#ffffff;stroke:#000000;stroke-width:0"
-       d="m 49.038616,86.598907 c 1.974401,-0.514246 5.724224,-0.275582 4.517582,-2.36322 0.99056,10e-7 -10.988012,-8e-6 1.661677,0 -0.109122,1.708524 1.617057,2.050862 2.719959,2.462092 z"
+       d="m 49.038616,86.504005 c 1.760534,-0.493595 5.104175,-0.264515 4.028237,-2.268318 0.883262,10e-7 -9.797789,-8e-6 1.481684,0 -0.0973,1.639914 1.985672,1.968504 2.969107,2.36322 z"
        id="path6"
        sodipodi:nodetypes="ccccc" />
     <path
        style="fill:#ffffff;fill-opacity:0.8;stroke:#000000;stroke-width:0"
-       d="m 49.038616,86.598907 -0.432548,3.100327 8.825069,0 0.506697,-3.001455 z"
+       d="m 48.993934,86.598907 -0.387866,3.100327 9.331766,0 -0.42019,-3.100327 z"
        id="path7"
        sodipodi:nodetypes="ccccc" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.78598px;font-family:'Bodoni MT';-inkscape-font-specification:'Bodoni MT, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;inline-size:7.89712;fill:#050491;fill-opacity:1;stroke:#000000;stroke-width:0"
-       x="43.232067"
-       y="101.52937"
-       id="text7"
-       transform="matrix(1.2961371,0.00533169,-0.18691789,0.76622302,11.370586,11.342776)"><tspan
-         x="43.232067"
-         y="101.52937"
-         id="tspan1">BN</tspan></text>
   </g>
 </svg>
