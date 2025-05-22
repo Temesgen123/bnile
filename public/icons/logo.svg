@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="32.000015"
+   height="31.999998"
+   viewBox="0 0 8.4666705 8.4666661"
+   version="1.1"
+   id="svg1"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px" />
+  <defs
+     id="defs1">
+    <linearGradient
+       id="swatch2070"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#0706fb;stop-opacity:1;"
+         offset="0"
+         id="stop2070" />
+    </linearGradient>
+    <linearGradient
+       id="swatch7"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#000080;stop-opacity:1;"
+         offset="0"
+         id="stop7" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#swatch2070"
+       id="linearGradient2070"
+       x1="49.038616"
+       y1="88.469017"
+       x2="57.505283"
+       y2="88.469017"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(49.038617,84.235687)" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-49.038617,-84.235687)">
+    <rect
+       style="fill:url(#linearGradient2070);fill-opacity:1;stroke:#000000;stroke-width:0"
+       id="rect1"
+       width="8.4666691"
+       height="8.4666653"
+       x="49.038616"
+       y="84.235687"
+       ry="0.76688939" />
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;font-family:Castellar;-inkscape-font-specification:Castellar;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0"
+       x="49.919186"
+       y="89.625076"
+       id="text6"><tspan
+         sodipodi:role="line"
+         id="tspan6"
+         style="fill:#ffffff;fill-opacity:1;stroke-width:0"
+         x="49.919186"
+         y="89.625076">BN</tspan></text>
+    <path
+       style="fill:#ffffff;stroke:#000000;stroke-width:0"
+       d="m 49.038616,86.598907 4.233335,-2.363219 h 2.971681 l 1.26165,2.363219 z"
+       id="path6"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       style="fill:#ffffff;stroke:#000000;stroke-width:0"
+       d="m 49.641595,89.600825 -0.524328,3.101528 7.370796,-10e-7 0.938572,-3.101527 z"
+       id="path7"
+       sodipodi:nodetypes="ccccc" />
+  </g>
+</svg>

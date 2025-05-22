@@ -131,6 +131,7 @@
   --border: oklch(0.92 0.004 286.32);
   --input: oklch(0.92 0.004 286.32);
   --ring: oklch(0.795 0.184 86.047);
+  --radius: 0.5rem,
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -187,5 +188,13 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+@layer utilities {
+  .header-button {
+   @apply cursor-pointer p-1 border border-transparent hover:border-white rounded-[2px]
+  }
+  .h1-bold {
+  @apply font-bold text-2xl lg:text-3xl
   }
 }
