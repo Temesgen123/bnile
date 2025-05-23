@@ -2,14 +2,15 @@ import { APP_NAME } from '@/lib/constants';
 import Image from 'next/image';
 import Link from 'next/link';
 import Menu from './menu';
+import Search from './search';
 import { Button } from '@/components/ui/button';
 import { MenuIcon } from 'lucide-react';
 import data from '@/lib/data';
-import Search from './search';
+
 
 export default function Header() {
   return (
-    <header className="bg-black text-white">
+    <header className="bg-[#00004d] text-white ">
       <div className="px-2">
         <div className="flex items-center justify-between ">
           <div className="flex items-center">
@@ -35,7 +36,7 @@ export default function Header() {
           <Search />
         </div>
       </div>
-      <div className="flex items-center px-3 mb-[1px] bg-gray-800">
+      <div className="flex items-center px-3 mb-[1px] bg-[#000064] ">
         <Button
           variant="ghost"
           className=" dark header-button flex items-center gap-1 text-base [&_svg]:size-6"
