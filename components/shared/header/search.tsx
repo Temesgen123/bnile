@@ -9,7 +9,7 @@ import {
 } from '@/components/ui/select';
 import { APP_NAME } from '@/lib/constants';
 
-const categories = ['men', 'women', 'kids', 'accessorie'];
+const categories = ['men', 'women', 'kids', 'accessorie', 'general'];
 
 export default async function Search() {
   return (
