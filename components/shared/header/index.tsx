@@ -39,7 +39,7 @@ export default function Header() {
       <div className="flex items-center px-3 mb-[1px] bg-[#000064] ">
         <Button
           variant="ghost"
-          className=" dark header-button flex items-center gap-1 text-base [&_svg]:size-6"
+          className="dark header-button flex items-center gap-1 text-base [&_svg]:size-6"
         >
           <MenuIcon /> All
         </Button>
