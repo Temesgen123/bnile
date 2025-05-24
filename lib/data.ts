@@ -55,7 +55,7 @@ const data = {
       image: '/images/banner2.jpg',
       url: '/search?category=Wrist Watches',
       isPublished: true,
-    },
+    },    
   ],
 };
 
