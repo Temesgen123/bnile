@@ -1,6 +1,5 @@
 import { Document, Model, model, models, Schema } from 'mongoose';
 import { IProductInput } from '@/types';
-import { required } from 'zod/v4-mini';
 
 export interface IProduct extends Document, IProductInput {
   _id: string;
