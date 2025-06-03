@@ -43,5 +43,5 @@ const ProductPrice = ({
                     </div>
                 </div>
             </div>
-    )
+    ):(<div>Place Holder</div>)
 }
