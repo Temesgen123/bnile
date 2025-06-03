@@ -10,7 +10,7 @@ export default function Footer() {
       <div className="w-full ">
         <Button
           variant="ghost"
-          className="bg-[#000064] w-full rounded-none"
+          className="bg-[#000059] w-full rounded-none"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
           <ChevronUp className="mr-2 w-4 h-4" />

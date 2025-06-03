@@ -1,4 +1,4 @@
-import data from "../data";
+import data from "@/lib/data";
 import { connectToDataBase } from ".";
 import Product from "./models/product.model";
 import { cwd } from "process";

@@ -14,7 +14,7 @@ const categories = ['men', 'women', 'kids', 'accessorie'];
 export default async function Search() {
   return (
     <form action="/search" method="GET" className="flex items-stretch h-full">
-      <Select name="category">
+      <Select name="category" >
         <SelectTrigger className="w-auto h-full dark:border-gray-200 bg-gray-100 text-black border-r rounded-r-none rounded-l-md">
           <SelectValue placeholder="All" />
         </SelectTrigger>
@@ -28,7 +28,7 @@ export default async function Search() {
         </SelectContent>
       </Select>
       <Input
-        className=" flex-1 rounded-none dark:border-gray-200 bg-gray-100 text-black text-base"
+        className=" flex-1 rounded-none dark:border-gray-200 bg-gray-100 text-black text-base "
         placeholder={`Search Site ${APP_NAME}`}
         name="q"
         type="search"

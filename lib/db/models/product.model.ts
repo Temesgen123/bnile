@@ -39,6 +39,10 @@ const productSchema = new Schema<IProduct>(
       type: Number,
       required: true,
     },
+    countInStock: {
+      type: Number,
+      required: true,
+    },
     tags: {
       type: [String],
       default: ['new arrival'],
@@ -94,7 +98,7 @@ const productSchema = new Schema<IProduct>(
   { timestamps: true }
 );
 
-const Product =
+const Product: Model<IProduct> =
   (models.product as Model<IProduct>) ||
   model<IProduct>('Product', productSchema);
 

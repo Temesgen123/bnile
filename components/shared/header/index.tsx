@@ -36,7 +36,7 @@ export default function Header() {
           <Search />
         </div>
       </div>
-      <div className="flex items-center px-3 mb-[1px] bg-[#000064] ">
+      <div className="flex items-center px-3 mb-[1px] bg-[#000059] ">
         <Button
           variant="ghost"
           className="dark header-button flex items-center gap-1 text-base [&_svg]:size-6"
