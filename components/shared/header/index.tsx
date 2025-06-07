@@ -7,7 +7,6 @@ import { Button } from '@/components/ui/button';
 import { MenuIcon } from 'lucide-react';
 import data from '@/lib/data';
 
-
 export default function Header() {
   return (
     <header className="bg-[#00004d] text-white ">

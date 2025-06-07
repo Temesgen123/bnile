@@ -21,7 +21,9 @@ export default function ProductGallery({ images }: { images: string[] }) {
                 : 'ring-1 ring-gray-300'
             }`}
           >
-            <Image src={image} alt="product image" width={48} height={48} />
+            {
+              image ? ( <Image src={image} alt="product image" width={48} height={48} />): <div>No image found</div>
+           }
           </button>
         ))}
       </div>
