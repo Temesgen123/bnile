@@ -72,8 +72,7 @@ export default async function ProductDetails(props: {
                 </div>
               </div>
             </div>
-          </div>
-          <div>
+            <div>
             <SelectVariant
               product={product}
               size={size || product.sizes[0]}
@@ -87,6 +86,8 @@ export default async function ProductDetails(props: {
               </p>
             </div>
           </div>
+          </div>
+          
           <div>
             <Card>
               <CardContent className="p-4 flex flex-col gap-4">

@@ -11,7 +11,7 @@ const ImageHover = ({
   hoverSrc: string;
   alt: string;
 }) => {
-  const [isHovered, setIsHovered] = useState(false);  
+  const [isHovered, setIsHovered] = useState(false);
   let hoverTimeOut: ReturnType<typeof setTimeout>;
   const handleMouseEnter = () => {
     hoverTimeOut = setTimeout(() => setIsHovered(true), 1000);
@@ -23,7 +23,7 @@ const ImageHover = ({
 
   return (
     <div
-      className="relative h-52"
+      className="relative h-52 "
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -41,7 +41,7 @@ const ImageHover = ({
         alt={alt}
         fill
         sizes="80vw"
-        className={`absolute inset object-contain transition-opacity duration-500 ${
+        className={`absolute inset-0 object-contain transition-opacity duration-500 ${
           isHovered ? 'opacity-100' : 'opacity-0'
         }`}
       />
@@ -49,4 +49,4 @@ const ImageHover = ({
   );
 };
 
-export default ImageHover
+export default ImageHover;
