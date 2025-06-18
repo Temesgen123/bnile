@@ -11,6 +11,8 @@ import { Separator } from '@/components/ui/separator';
 import Rating from '@/components/shared/product/rating';
 import BrowsingHistoryList from '@/components/shared/browsing-history-list';
 import AddToBrowsingHistory from '@/components/shared/product/add-to-browsing-history';
+import AddToCart from '@/components/shared/product/add-to-cart';
+import { generateId, round2 } from '@/lib/utils';
 
 export async function generateMetadata(props: {
   params: Promise<{ slug: string }>;
@@ -46,7 +48,7 @@ export default async function ProductDetails(props: {
       <section>
         <div className="grid grid-cols-1 md:grid-cols-5">
           <div className="col-span-2">
-            <ProductGallery images={product.images} />
+            <ProductGallery images={product?.images} />
           </div>
           <div className="flex w-full flex-col gap-2 md:p-5 col-span-2">
             <div className="flex flex-col gap-3">
@@ -73,21 +75,21 @@ export default async function ProductDetails(props: {
               </div>
             </div>
             <div>
-            <SelectVariant
-              product={product}
-              size={size || product.sizes[0]}
-              color={color || product.colors[0]}
-            />
-            <Separator className="my-2" />
-            <div className="flex flex-col gap-2">
-              <p className="p-bold-20 text-gray-600">Description: </p>
-              <p className="p-medium-16 lg:p-regular-18">
-                {product.description}
-              </p>
+              <SelectVariant
+                product={product}
+                size={size || product.sizes[0]}
+                color={color || product.colors[0]}
+              />
+              <Separator className="my-2" />
+              <div className="flex flex-col gap-2">
+                <p className="p-bold-20 text-gray-600">Description: </p>
+                <p className="p-medium-16 lg:p-regular-18">
+                  {product.description}
+                </p>
+              </div>
             </div>
           </div>
-          </div>
-          
+
           <div>
             <Card>
               <CardContent className="p-4 flex flex-col gap-4">
@@ -102,8 +104,24 @@ export default async function ProductDetails(props: {
                 ) : (
                   <div className="text-destructive text-xl"> Out of Stock</div>
                 )}
+                 {product.countInStock !== 0 && <div className='flex justify-center items-center'>
+              <AddToCart item={{
+                clientId: generateId(),
+                product: product._id,
+                countInStock: product.countInStock,
+                name: product.name,
+                slug: product.slug,
+                category: product.category,
+                price: round2(product.price),
+                quantity: 1,
+                image: product.images[0],
+                size: size || product.sizes[0],
+                color: color || product.colors[0]
+              }}/>
+
+            </div>}
               </CardContent>
-            </Card>
+            </Card>           
           </div>
         </div>
       </section>
