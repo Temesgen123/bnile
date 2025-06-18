@@ -71,32 +71,35 @@ export default function CartAddItem({ itemId }: { itemId: string }) {
                       </span>
                       Choose this option at checkout.
                     </div>
+                    <div className="lg:border-1 lg:border-muted lg:pl-3 flex flex-col items-center gap-3 ">
+                      <div className="flex gap-3">
+                        <span>Cart Subtotal: </span>
+                        <ProductPrice
+                          className="text-2xl "
+                          price={itemsPrice}
+                        />
+                      </div>
+                      <Link
+                        href="/checkout"
+                        className={cn(buttonVariants(), 'rounded-full w-full')}
+                      >
+                        {' '}
+                        Proceed to checkout. (
+                        {items.reduce((a, c) => a + c.quantity, 0)}items)
+                      </Link>
+                      <Link
+                        href="/cart"
+                        className={cn(
+                          buttonVariants({ variant: 'outline' }),
+                          'rounded-full w-full'
+                        )}
+                      >
+                        {' '}
+                        Go to cart
+                      </Link>
+                    </div>
                   </div>
                 )}
-              </div>
-              <div className="lg:border-1 lg:border-muted lg:pl-3 flex flex-col items-center gap-3 ">
-                <div className="flex gap-3">
-                  <span>Cart Subtotal: </span>
-                  <ProductPrice className="text-2xl " price={itemsPrice} />
-                </div>
-                <Link
-                  href="/checkout"
-                  className={cn(buttonVariants(), 'rounded-full w-full')}
-                >
-                  {' '}
-                  Proceed to checkout. (
-                  {items.reduce((a, c) => a + c.quantity, 0)}items)
-                </Link>
-                <Link
-                  href="/cart"
-                  className={cn(
-                    buttonVariants({ variant: 'outline' }),
-                    'rounded-full w-full'
-                  )}
-                >
-                  {' '}
-                  Go to cart
-                </Link>
               </div>
             </div>
           </CardContent>
