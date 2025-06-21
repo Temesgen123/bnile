@@ -21,7 +21,7 @@ export default function CartButton() {
         {isMounted && (
           <span
             className={cn(
-              'bg-red-600 px-1 rounded-full text-primary text-xs absolute right-[30px] top-[-1px] z-10 ',
+              'bg-red-500 px-1 rounded-full text-primary text-xs absolute right-[30px] top-[-1px] z-10 ',
               CartAddItemsCount >= 10 && 'text-sm px-0 p-[1px]'
             )}
           >
