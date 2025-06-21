@@ -80,3 +80,29 @@ export const CartSchema = z.object({
 });
 
 
+//User
+const UserName = z.string().min(2, { message: 'User name must be al least 2 characters.' }).max(50, { message: 'User name must be at most 50 characters. ' });
+const Email = z.string().min(1, 'Email is required.').email('Email is invalid.');
+const Password = z.string().min(3, 'Password must be at least 3 chararcters.');
+const UserRole = z.string().min(1, 'Role is required.');
+
+export const UserInputSchema = z.object({
+  name: UserName,
+  email: Email,
+  image: z.string().optional(),
+  emailVerified: z.boolean(),
+  role: UserRole,
+  password: Password,
+  paymentMethod: z.string().min(1, 'Payment method is required.'),
+  address: z.object({
+    fullName: z.string().min(1, 'Full name is required.'),
+    street: z.string().min(1, 'Street name is required.'),
+    city: z.string().min(1, 'City name is required.'),
+    province: z.string().min(1, 'Province is required.'),
+    postalCode: z.string().min(1, 'Postalcode  is required.'),
+    country: z.string().min(1, 'Country name is required.'),
+    phone: z.string().min(1, 'Phone number is required.'),
+  })
+})
+
+export const UserSignInSchema = z.object({email: Email, password: Password,})
