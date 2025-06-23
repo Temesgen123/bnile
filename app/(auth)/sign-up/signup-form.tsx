@@ -120,7 +120,7 @@ export default function SignInForm() {
             <Button type="submit">Sign Up</Button>
           </div>
           <div className="text-sm">
-            By creating an account, you agree to {APP_NAME}&appos;s{' '}
+            By creating an account, you agree to {APP_NAME}&apos;s{' '}
             <Link href="/page/conditions-of-use">Conditions of Use</Link>
             <Link href="/page/privacy-policy">Privacy Notice</Link>
           </div>

@@ -89,8 +89,9 @@ export default function CredentilasSignInForm() {
             <Button type="submit">Sign In </Button>
           </div>
           <div className="text-sm">
-            By signing in, you agree to {APP_NAME}&appos;s{''}
-            <Link href="/page/conditions-of-use">Conditions of use.</Link>and{''}
+            By signing in, you agree to {APP_NAME}&apos;s{' '}
+            <Link href="/page/conditions-of-use">Conditions of use{' '}</Link>and
+            {' '}
             <Link href="/page/privacy-policy">Privacy Notice.</Link>
           </div>
         </div>

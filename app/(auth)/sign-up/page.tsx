@@ -9,7 +9,6 @@ import SignUpForm from './signup-form';
 
 export const metadata: Metadata = { title: 'Sign Up' };
 
-
 export default async function SignUp(props: {
   searchParams: Promise<{ callbackUrl: string }>;
 }){
