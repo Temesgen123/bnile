@@ -1,13 +1,13 @@
-import {MongoDBAdapter} from '@auth/mongodb-adapter'
+import { MongoDBAdapter } from '@auth/mongodb-adapter';
+import Google from 'next-auth/providers/google';
 import bcrypt from 'bcryptjs';
-import CredentialsProvider  from 'next-auth/providers/credentials';
+import CredentialsProvider from 'next-auth/providers/credentials';
 import { connectToDataBase } from './lib/db';
 import client from './lib/db/client';
 import User from './lib/db/models/user.model';
 
 import NextAuth, { type DefaultSession } from 'next-auth';
 import authConfig from './auth.config';
-
 
 declare module 'next-auth' {
   interface Session {
@@ -30,6 +30,9 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   },
   adapter: MongoDBAdapter(client),
   providers: [
+    Google({
+      allowDangerousEmailAccountLinking: true,
+    }),
     CredentialsProvider({
       credentials: {
         email: { type: 'email' },
