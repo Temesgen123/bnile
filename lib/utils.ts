@@ -54,10 +54,85 @@ export const formatError = (error: any): string => {
     });
     return fieldErrors.join('. ');
   } else if (error.code === '11000') {
-    const duplicateField = Object.keys(error.keyValue)[0]
-    return `${duplicateField} already exists.`
+    const duplicateField = Object.keys(error.keyValue)[0];
+    return `${duplicateField} already exists.`;
   } else {
-    return typeof error.message === 'string' ?
-      error.message : JSON.stringify(error.message)
+    return typeof error.message === 'string'
+      ? error.message
+      : JSON.stringify(error.message);
   }
+};
+
+export function calculateFutureDate(days: number) {
+  const currentDate = new Date();
+  currentDate.setDate(currentDate.getDate() + days);
+  return currentDate;
+}
+
+export function getMonthName(yearAndMonth: string) {
+  const [monthNumber] = yearAndMonth.split('-'); // removed year
+  const date = new Date();
+  date.setMonth(parseInt(monthNumber) - 1);
+  return new Date().getMonth() === parseInt(monthNumber) - 1
+    ? `${date.toLocaleString('default', { month: 'long' })}(ongoing)`
+    : date.toLocaleString('default', {
+        month: 'long',
+      });
+}
+
+export function calculatePastDate(days: number) {
+  const currentDate = new Date();
+  currentDate.setDate(currentDate.getDate() - days);
+  return currentDate;
+}
+
+export function timeUntilMidnight(): { hours: number; minutes: number } {
+  const now = new Date();
+  const midnight = new Date();
+  midnight.setHours(24, 0, 0, 0); // set to 12 AM (next day)
+
+  const diff = midnight.getTime() - now.getTime();
+  const hours = Math.floor(diff / (1000 * 60 * 60));
+  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  return { hours, minutes };
+}
+
+export const formatDateTime = (dateString: Date) => {
+  const dateTimeOptions: Intl.DateTimeFormatOptions = {
+    month: 'short',
+    year: 'numeric',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: true,
+  };
+  const dateOptions: Intl.DateTimeFormatOptions = {
+    month: 'short',
+    year: 'numeric',
+    day: 'numeric',
+  };
+  const timeOptions: Intl.DateTimeFormatOptions = {
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: true,
+  };
+  const formattedDateTime: string = new Date(dateString).toLocaleString(
+    'en-US',
+    dateTimeOptions
+  );
+
+  const formattedDate: string = new Date(dateString).toLocaleString(
+    'en-US',
+    dateOptions
+  );
+
+  const formattedTime: string = new Date(dateString).toLocaleString(
+    'en-US',
+    timeOptions
+  );
+  return {
+    dateTime: formattedDateTime,
+    dateOnly: formattedDate,
+    timeOnly: formattedTime,
+  };
 };

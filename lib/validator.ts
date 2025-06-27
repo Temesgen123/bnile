@@ -2,12 +2,18 @@ import { z } from 'zod';
 import { formatNumberWithDecimal } from './utils';
 
 //common
+const MongoId = z
+  .string()
+  .regex(/^[0-9a-fA-F]{24}$/, { message: 'Invalid MongoDB Id' });
+
 const Price = (field: string) =>
   z.coerce
     .number()
     .refine(
-      (value) => /^\d+(\.\d{2})?$/.test(formatNumberWithDecimal(value)),
-      `${field} must have exactly two decimal places (e.g., 49.99)`
+      (value) => (
+        /^\d+(\.\d{2})?$/.test(formatNumberWithDecimal(value)),
+        `${field} must have exactly two decimal places (e.g., 49.99)`
+      )
     );
 
 export const ProductInputSchema = z.object({
@@ -18,7 +24,7 @@ export const ProductInputSchema = z.object({
   brand: z.string().min(1, 'Brand is required.'),
   description: z.string().min(1, 'Description is required.'),
   isPublished: z.boolean(),
-  price: Price('price'),
+  price: Price('Price'),
   listPrice: Price('List price'),
   countInStock: z.coerce
     .number()
@@ -66,6 +72,55 @@ export const OrderItemSchema = z.object({
   color: z.string().optional(),
 });
 
+export const ShippingAddressSchema = z.object({
+  fullName: z.string().min(1, 'Full name is required.'),
+  street: z.string().min(1, 'Address is required.'),
+  city: z.string().min(1, 'City is required.'),
+  postalCode: z.string().min(1, 'Postal Code is required.'),
+  province: z.string().min(1, 'Province is required.'),
+  phone: z.string().min(1, 'Phone is required.'),
+  country: z.string().min(1, 'Country is required.'),
+});
+
+//Order
+export const OrderInputSchema = z.object({
+  user: z.union([
+    MongoId,
+    z.object({
+      name: z.string(),
+      email: z.string().email(),
+    }),
+  ]),
+  items: z
+    .array(OrderItemSchema)
+    .min(1, 'Order must contain at least one item'),
+  shippingAddress: ShippingAddressSchema,
+  paymentMethod: z.string().min(1, 'Payment method is required'),
+  paymentResult: z
+    .object({
+      id: z.string(),
+      status: z.string(),
+      email_address: z.string(),
+      pricePaid: z.string(),
+    })
+    .optional(),
+  itemsPrice: Price('Items price'),
+  shippingPrice: Price('Shipping price'),
+  taxPrice: Price('Tax price '),
+  totalPrice: Price('Total price'),
+  expectedDeliveryDate: z
+    .date()
+    .refine(
+      (value) => value > new Date(),
+      'Expected delivery date must be in the future.'
+    ),
+  isDelivered: z.boolean().default(false),
+  deliveredAt: z.date().optional(),
+  isPaid: z.boolean().default(false),
+  paidAt: z.date().optional(),
+});
+
+//Cart
 export const CartSchema = z.object({
   items: z
     .array(OrderItemSchema)
@@ -75,6 +130,7 @@ export const CartSchema = z.object({
   shippingPrice: z.optional(z.number()),
   totalPrice: z.number(),
   paymentMethod: z.optional(z.string()),
+  shippingAddress: z.optional(ShippingAddressSchema),
   deliveryDateIndex: z.optional(z.number()),
   expectedDeliveryDate: z.optional(z.date()),
 });
