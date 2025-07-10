@@ -17,7 +17,7 @@ const intialState: Cart = {
 };
 interface CartState {
   cart: Cart;
-  addItem: (item: OrderItem, quantity: number) => Promise<string>;
+  addItem: (item: OrderItem, quantity: number) => Promise<string | undefined>; // added undefined
   updateItem: (item: OrderItem, quantity: number) => Promise<void>;
   removeItem: (item: OrderItem) => void;
   clearCart: () => void;
