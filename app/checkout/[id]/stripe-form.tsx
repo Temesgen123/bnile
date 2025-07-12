@@ -54,7 +54,7 @@ export default function StripeForm({
       </div>
       <Button
         className="w-full"
-        size={'lg'}
+        // size={'lg'}
         disabled={stripe == null || elements == null || isLoading}
       >
         {isLoading ? (

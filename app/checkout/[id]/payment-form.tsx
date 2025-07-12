@@ -22,8 +22,8 @@ import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import StripeForm from './stripe-form';
 
-//OrderDetailsForm
-export default function OrderDetailsForm({
+//OrderDetailsForm ***
+export default function PaymentForm({
   order,
   paypalClientId,
   clientSecret,
@@ -134,7 +134,6 @@ export default function OrderDetailsForm({
                 />
               </Elements>
             )}
-
             {!isPaid && paymentMethod === 'Cash On Delivery' && (
               <Button
                 className="w-f rounded-full"
@@ -151,10 +150,13 @@ export default function OrderDetailsForm({
     </Card>
   );
 
+  // const stripePromise = loadStripe(
+  //   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string
+  // );
+
   const stripePromise = loadStripe(
     process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string
   );
-
   return (
     <main className="max-w-6xl mx-auto">
       <div className="grid md:grid-cols-4 gap-6">
