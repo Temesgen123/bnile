@@ -20,7 +20,7 @@ import { Button } from '@/components/ui/button';
 import ProductPrice from '@/components/shared/product/product-price';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
-import StripeForm from './tripe-form';
+import StripeForm from './stripe-form';
 
 //OrderDetailsForm
 export default function OrderDetailsForm({
