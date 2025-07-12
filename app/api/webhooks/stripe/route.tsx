@@ -4,13 +4,14 @@ import Stripe from 'stripe';
 import { sendPurchaseReceipt } from '@/emails';
 import Order from '@/lib/db/models/ordermodel';
 
+// const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 
 export async function POST(req: NextRequest) {
   const event = await stripe.webhooks.constructEvent(
     await req.text(),
     req.headers.get('stripe-signature') as string,
-    process.env.STRIPE_WEBHOOKS_SECRET as string
+    process.env.STRIPE_WEBHOOK_SECRET as string
   );
   if (event.type === 'charge.succeeded') {
     const charge = event.data.object;

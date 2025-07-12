@@ -9,7 +9,6 @@ import { FormEvent, useState } from 'react';
 
 import { Button } from '@/components/ui/button';
 import ProductPrice from '@/components/shared/product/product-price';
-// import { SERVER_URL } from '@/lib/constants';
 import { SERVER_URL } from '@/lib/constants';
 
 export default function StripeForm({
@@ -33,7 +32,6 @@ export default function StripeForm({
       .confirmPayment({
         elements,
         confirmParams: {
-          //   return_url: `${SERVER_URL}/checkout/${orderId}/stripe-payment-success`,
           return_url: `${SERVER_URL}/checkout/${orderId}/stripe-payment-success`,
         },
       })
