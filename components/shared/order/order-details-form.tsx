@@ -151,7 +151,7 @@ export default function OrderDetailsForm({
                 <ProductPrice price={totalPrice} plain />
               </div>
             </div>
-            {!isPaid && ['stripe', 'paypal'].includes(paymentMethod) && (
+            {!isPaid && ['Stripe', 'PayPal'].includes(paymentMethod) && (
               <Link
                 className={cn(buttonVariants(), 'w-full')}
                 href={`/checkout/${order._id}`}
