@@ -4,7 +4,7 @@ import Stripe from 'stripe';
 
 import { auth } from '@/auth';
 import { getOrderById } from '@/lib/actions/order.actions';
-import PaymentForm from './payment-form';
+import OrderPaymentForm from './payment-form';
 
 export const metadata = {
   title: 'Payment',
@@ -23,7 +23,6 @@ const CheckoutPaymentPage = async (props: {
 
   let client_secret = null;
   if (order.paymentMethod === 'Stripe' && !order.isPaid) {
-    // const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
     const paymentIntent = await stripe.paymentIntents.create({
       amount: Math.round(order.totalPrice * 100),
@@ -34,7 +33,7 @@ const CheckoutPaymentPage = async (props: {
   }
 
   return (
-    <PaymentForm
+    <OrderPaymentForm
       order={order}
       clientSecret={client_secret}
       paypalClientId={process.env.PAYPAL_CLIENT_ID || 'sb'}

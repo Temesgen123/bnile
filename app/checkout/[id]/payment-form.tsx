@@ -23,7 +23,7 @@ import { Elements } from '@stripe/react-stripe-js';
 import StripeForm from './stripe-form';
 
 //OrderDetailsForm ***
-export default function PaymentForm({
+export default function OrderPaymentForm({
   order,
   paypalClientId,
   clientSecret,
@@ -149,10 +149,6 @@ export default function PaymentForm({
       </CardContent>
     </Card>
   );
-
-  // const stripePromise = loadStripe(
-  //   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string
-  // );
 
   const stripePromise = loadStripe(
     process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string
