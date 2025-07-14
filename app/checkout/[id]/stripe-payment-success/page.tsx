@@ -5,7 +5,6 @@ import Stripe from 'stripe';
 import { Button } from '@/components/ui/button';
 import { getOrderById } from '@/lib/actions/order.actions';
 
-// const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 
 export default async function SuccessPage(props: {
@@ -17,11 +16,9 @@ export default async function SuccessPage(props: {
   const searchParams = await props.searchParams;
   const order = await getOrderById(id);
   if (!order) notFound();
-
   const paymentIntent = await stripe.paymentIntents.retrieve(
     searchParams.payment_intent
   );
-
   if (
     paymentIntent.metadata.orderId == null ||
     paymentIntent.metadata.orderId !== order._id.toString()
