@@ -23,7 +23,7 @@ import { Elements } from '@stripe/react-stripe-js';
 import StripeForm from './stripe-form';
 
 //OrderDetailsForm ***
-export default function OrderPaymentForm({
+export default function OrderDetailsForm({
   order,
   paypalClientId,
   clientSecret,
@@ -76,8 +76,8 @@ export default function OrderPaymentForm({
   const CheckoutSummary = () => (
     <Card>
       <CardContent className="p-4">
-        <div className="">
-          <div className="text-lg font-bold">Order Summary</div>
+        <div className=" bg-slate-200 p-2">
+          <div className="text-lg font-bold ">Order Summary</div>
           <div className="space-y-2">
             <div className="flex justify-between">
               <span>Items: </span>
@@ -136,7 +136,7 @@ export default function OrderPaymentForm({
             )}
             {!isPaid && paymentMethod === 'Cash On Delivery' && (
               <Button
-                className="w-f rounded-full"
+                className="w-full rounded-full"
                 onClick={() => {
                   router.push(`/account/orders/${order._id}`);
                 }}
