@@ -59,7 +59,6 @@ export default function OrderPaymentForm({
     }
     return status;
   }
-
   const handleCreatePayPalOrder = async () => {
     const res = await createPayPalOrder(order._id);
     if (!res.success) {
