@@ -23,7 +23,7 @@ import { Elements } from '@stripe/react-stripe-js';
 import StripeForm from './stripe-form';
 
 //OrderDetailsForm ***
-export default function OrderDetailsForm({
+export default function OrderPaymentForm({
   order,
   paypalClientId,
   clientSecret,
