@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
     const orderId = charge.metadata.orderId;
     const email = charge.billing_details.email;
     const pricePaidInCents = charge.amount;
-    const order = await Order.findById(orderId);
+    const order = await Order.findById(orderId).populate('user', 'email');
     if (order == null) {
       return new NextResponse('Bad request', { status: 400 });
     }
