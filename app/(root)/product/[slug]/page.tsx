@@ -8,11 +8,13 @@ import ProductPrice from '@/components/shared/product/product-price';
 import ProductGallery from '@/components/shared/product/product-gallery';
 import ProductSlider from '@/components/shared/product/product-slider';
 import { Separator } from '@/components/ui/separator';
-import Rating from '@/components/shared/product/rating';
 import BrowsingHistoryList from '@/components/shared/browsing-history-list';
 import AddToBrowsingHistory from '@/components/shared/product/add-to-browsing-history';
 import AddToCart from '@/components/shared/product/add-to-cart';
 import { generateId, round2 } from '@/lib/utils';
+import RatingSummary from '@/components/shared/product/rating-summary';
+import ReviewList from './review-list';
+import { auth } from '@/auth';
 
 export async function generateMetadata(props: {
   params: Promise<{ slug: string }>;
@@ -42,6 +44,7 @@ export default async function ProductDetails(props: {
     productId: product._id,
     page: Number(page || '1'),
   });
+  const session = await auth();
   return (
     <div>
       <AddToBrowsingHistory id={product._id} category={product.category} />
@@ -58,9 +61,12 @@ export default async function ProductDetails(props: {
               </p>
               <h1 className="text-bold text-lg lg:text-xl">{product.name}</h1>
               <div className="flex items-center gap-2">
-                <span>{product.avgRating.toFixed(1)}</span>
-                <Rating rating={product.avgRating} />
-                <span>{product.numReviews}rating</span>
+                <RatingSummary
+                  avgRating={product.avgRating}
+                  numReviews={product.numReviews}
+                  asPopover
+                  ratingDistribution={product.ratingDistribution}
+                />
               </div>
               <Separator />
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -104,26 +110,35 @@ export default async function ProductDetails(props: {
                 ) : (
                   <div className="text-destructive text-xl"> Out of Stock</div>
                 )}
-                 {product.countInStock !== 0 && <div className='flex justify-center items-center'>
-              <AddToCart item={{
-                clientId: generateId(),
-                product: product._id,
-                countInStock: product.countInStock,
-                name: product.name,
-                slug: product.slug,
-                category: product.category,
-                price: round2(product.price),
-                quantity: 1,
-                image: product.images[0],
-                size: size || product.sizes[0],
-                color: color || product.colors[0]
-              }}/>
-
-            </div>}
+                {product.countInStock !== 0 && (
+                  <div className="flex justify-center items-center">
+                    <AddToCart
+                      item={{
+                        clientId: generateId(),
+                        product: product._id,
+                        countInStock: product.countInStock,
+                        name: product.name,
+                        slug: product.slug,
+                        category: product.category,
+                        price: round2(product.price),
+                        quantity: 1,
+                        image: product.images[0],
+                        size: size || product.sizes[0],
+                        color: color || product.colors[0],
+                      }}
+                    />
+                  </div>
+                )}
               </CardContent>
-            </Card>           
+            </Card>
           </div>
         </div>
+      </section>
+      <section className="mt-10">
+        <h2 className="h2-bold mb-2" id="reviews">
+          Customer reviews
+        </h2>
+        <ReviewList product={product} userId={session?.user.id} />
       </section>
       <section className="mt-10">
         <ProductSlider
