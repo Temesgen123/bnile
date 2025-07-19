@@ -67,12 +67,13 @@ const updateProductReview = async (productId: string) => {
     {
       $match: { product: new mongoose.Types.ObjectId(productId) },
     },
-    { $group: { _id: 'string', count: { $sum: 1 } } },
+    { $group: { _id: '$rating', count: { $sum: 1 } } },
   ]);
 
   const totalReviews = result.reduce((sum, { count }) => sum + count, 0);
   const avgRating =
     result.reduce((sum, { _id, count }) => sum + _id * count, 0) / totalReviews;
+
   const ratingMap = result.reduce((map, { _id, count }) => {
     map[_id] = count;
     return map;

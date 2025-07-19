@@ -92,12 +92,13 @@ export default function ReviewList({
       }
     }
   };
+
   const loadMoreReviews = async () => {
     if (totalPages !== 0 && page > totalPages) return setLoadingReviews(true);
     const res = await getReviews({ productId: product._id, page: page });
     setLoadingReviews(false);
-    setReviews([...reviews, ...res?.data]);
-    setTotalPages(res?.totalPages);
+    setReviews([...reviews, ...res.data]);
+    setTotalPages(res.totalPages);
     setPage(page + 1);
   };
 
@@ -107,8 +108,8 @@ export default function ReviewList({
     const loadReviews = async () => {
       setLoadingReviews(true);
       const res = await getReviews({ productId: product._id, page: 1 });
-      setReviews([...res?.data]);
-      setTotalPages(res?.totalPages);
+      setReviews([...res.data]);
+      setTotalPages(res.totalPages);
       setLoadingReviews(false);
     };
     if (inView) {
@@ -128,12 +129,14 @@ export default function ReviewList({
       data: { ...values, product: product._id },
       path: `/product/${product.slug}`,
     });
-    if (!res?.success)
+    if (!res.success) {
       return toast('Error', { description: 'Error of unknown description' });
+    }
     setOpen(false);
     reload();
-    toast('Error!', { description: res?.message });
+    toast('Result!', { description: res.message });
   };
+
   const handleOpenForm = async () => {
     form.setValue('product', product._id);
     form.setValue('user', userId!);
@@ -148,8 +151,7 @@ export default function ReviewList({
   };
   return (
     <div className="space-y-2">
-      {reviews?.length === 0 && <div>No revies yet</div>}
-
+      {reviews?.length === 0 && <div>No reviews yet</div>}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div className="flex flex-col gap-2">
           {reviews?.length !== 0 && (
@@ -272,7 +274,10 @@ export default function ReviewList({
             ) : (
               <div>
                 Please{' '}
-                <Link href={`/sign-in?callbackUrl=/product/${product.slug}`}>
+                <Link
+                  href={`/sign-in?callbackUrl=/product/${product.slug}`}
+                  className="highlight-link"
+                >
                   sign in
                 </Link>{' '}
                 to write a review
