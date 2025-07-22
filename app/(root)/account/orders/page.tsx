@@ -34,7 +34,7 @@ export default async function OrderPage(props: {
     <div>
       <div className="flex gap-2">
         <Link href="/account">Your account</Link>
-        <span>,</span>
+        <span>.</span>
         <span>{PAGE_TITLE}</span>
       </div>
       <h1 className="h1-bold pt-4">{PAGE_TITLE}</h1>
