@@ -32,9 +32,7 @@ const Pagination = ({ page, totalPages, urlParamName }: PaginationProps) => {
         size="lg"
         variant="outline"
         className="w-28"
-        onClick={() => {
-          onClick('prev');
-        }}
+        onClick={() => onClick('prev')}
         disabled={Number(page) <= 1}
       >
         Previous
@@ -43,9 +41,7 @@ const Pagination = ({ page, totalPages, urlParamName }: PaginationProps) => {
         size="lg"
         variant="outline"
         className="w-28"
-        onClick={() => {
-          onClick('next');
-        }}
+        onClick={() => onClick('next')}
         disabled={Number(page) >= totalPages}
       >
         Next
