@@ -51,21 +51,21 @@ export default async function OrderPage(props: {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {orders.data.length === 0 && (
+            {orders?.data?.length === 0 && (
               <TableRow>
                 <TableCell colSpan={6} className="">
                   You have no orders
                 </TableCell>
               </TableRow>
             )}
-            {orders.data.length !== 0 && (
+            {orders?.data?.length !== 0 && (
               <TableRow>
                 <TableCell colSpan={6} className="">
                   You have orders but I couldn&apos;t display it.
                 </TableCell>
               </TableRow>
             )}
-            {orders.data.map((order: IOrder) => {
+            {orders?.data?.map((order: IOrder) => {
               <TableRow key={order?._id}>
                 <TableCell>
                   <Link href={`/account/orders/${order?._id}`}>
