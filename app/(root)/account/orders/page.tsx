@@ -61,7 +61,7 @@ export default async function OrderPage(props: {
             {orders.data.length !== 0 && (
               <TableRow>
                 <TableCell colSpan={6} className="">
-                  You have orders but I couldn't display it.
+                  You have orders but I couldn&apos;t display it.
                 </TableCell>
               </TableRow>
             )}
