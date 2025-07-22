@@ -189,14 +189,16 @@ export async function getMyOrders({
   page: number;
 }) {
   limit = limit || PAGE_SIZE;
+
   await connectToDataBase();
+
   const session = await auth();
   if (!session) {
     throw new Error('User is not authorized.');
   }
   const skipAmount = (Number(page) - 1) * limit;
   const orders = await Order.find({
-    user: session?.user?.id,
+    user: session.user.id,
   })
     .sort({ createdAt: 'desc' })
     .skip(skipAmount)

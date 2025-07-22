@@ -62,5 +62,5 @@ const OrderSchema = new Schema<IOrder>(
 
 const Order =
   (models.Order as Model<IOrder>) || model<IOrder>('Order', OrderSchema);
-  
+
 export default Order;
