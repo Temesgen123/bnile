@@ -58,31 +58,38 @@ export default async function OrderPage(props: {
                 </TableCell>
               </TableRow>
             )}
+            {orders.data.length !== 0 && (
+              <TableRow>
+                <TableCell colSpan={6} className="">
+                  You have orders but I couldn't display it.
+                </TableCell>
+              </TableRow>
+            )}
             {orders.data.map((order: IOrder) => {
-              <TableRow key={order._id}>
+              <TableRow key={order?._id}>
                 <TableCell>
-                  <Link href={`/account/orders/${order._id}`}>
-                    {formatId(order._id)}
+                  <Link href={`/account/orders/${order?._id}`}>
+                    {formatId(order?._id)}
                   </Link>
                 </TableCell>
                 <TableCell>
                   {formatDateTime(order.createdAt!).dateTime}
                 </TableCell>
                 <TableCell>
-                  <ProductPrice price={order.totalPrice} plain />
+                  <ProductPrice price={order?.totalPrice} plain />
                 </TableCell>
                 <TableCell>
-                  {order.isPaid && order.paidAt
-                    ? formatDateTime(order.paidAt).dateTime
+                  {order?.isPaid && order?.paidAt
+                    ? formatDateTime(order?.paidAt).dateTime
                     : 'No'}
                 </TableCell>
                 <TableCell>
-                  {order.isDelivered && order.deliveredAt
-                    ? formatDateTime(order.deliveredAt).dateTime
+                  {order?.isDelivered && order?.deliveredAt
+                    ? formatDateTime(order?.deliveredAt).dateTime
                     : 'No'}
                 </TableCell>
                 <TableCell>
-                  <Link href={`/account/orders/${order._id}`}>
+                  <Link href={`/account/orders/${order?._id}`}>
                     <span className="px-2">Details</span>
                   </Link>
                 </TableCell>
@@ -90,7 +97,7 @@ export default async function OrderPage(props: {
             })}
           </TableBody>
         </Table>
-        {orders.totalPages > 1 && (
+        {orders?.totalPages > 1 && (
           //eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain
           <Pagination page={page} totalPages={orders?.totalPages!} />
         )}
