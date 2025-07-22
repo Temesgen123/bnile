@@ -62,7 +62,7 @@ export default async function OrderPage(props: {
               <TableRow>
                 <TableCell colSpan={6} className="">
                   You have orders but I couldn&apos;t display it. The length of
-                  ordders is : `${orders.data.length}`
+                  ordders is : ${orders.data.length}
                 </TableCell>
               </TableRow>
             )}
