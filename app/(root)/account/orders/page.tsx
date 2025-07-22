@@ -66,7 +66,7 @@ export default async function OrderPage(props: {
                 </TableCell>
               </TableRow>
             )}
-            {orders?.data?.map((order: IOrder) => {
+            {orders?.data?.map((order: IOrder) => (
               <TableRow key={order?._id}>
                 <TableCell>
                   <Link href={`/account/orders/${order?._id}`}>
@@ -94,8 +94,8 @@ export default async function OrderPage(props: {
                     <span className="px-2">Details</span>
                   </Link>
                 </TableCell>
-              </TableRow>;
-            })}
+              </TableRow>
+            ))}
           </TableBody>
         </Table>
         {orders?.totalPages > 1 && (
