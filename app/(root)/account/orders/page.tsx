@@ -62,6 +62,7 @@ export default async function OrderPage(props: {
               <TableRow>
                 <TableCell colSpan={6} className="">
                   You have orders but I couldn&apos;t display it.
+                  <p> Check data : {orders?.data}</p>
                 </TableCell>
               </TableRow>
             )}
