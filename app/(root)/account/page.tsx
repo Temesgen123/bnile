@@ -47,13 +47,13 @@ export default function AccountPage() {
           </Link>
         </Card>
         <Card>
-          <Link href="/account/address">
+          <Link href="/account/addresses">
             <CardContent className="flex items-start gap-4 p-6">
               <div>
                 <Home className="w-12 h-12" />
               </div>
               <div>
-                <h2 className="text-xl text-bold">Address</h2>
+                <h2 className="text-xl text-bold">Addresses</h2>
                 <p className="text-muted-foreground">
                   Edit, remove or set default address
                 </p>
