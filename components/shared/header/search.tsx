@@ -8,13 +8,15 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { APP_NAME } from '@/lib/constants';
+import { getAllCategories } from '@/lib/actions/product.actions';
 
-const categories = ['men', 'women', 'kids', 'accessorie'];
+// const categories = ['men', 'women', 'kids', 'accessorie'];
 
 export default async function Search() {
+  const categories = await getAllCategories();
   return (
     <form action="/search" method="GET" className="flex items-stretch h-full">
-      <Select name="category" >
+      <Select name="category">
         <SelectTrigger className="w-auto h-full dark:border-gray-200 bg-gray-100 text-black border-r rounded-r-none rounded-l-md">
           <SelectValue placeholder="All" />
         </SelectTrigger>
