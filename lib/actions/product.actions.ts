@@ -119,7 +119,7 @@ export async function getAllProducts({
   await connectToDataBase();
 
   const queryFilter =
-    query && rating !== 'all'
+    query && query !== 'all'
       ? {
           name: {
             $regex: query,
@@ -128,7 +128,7 @@ export async function getAllProducts({
         }
       : {};
   const categoryFilter = category && category !== 'all' ? { category } : {};
-  const tagFilter = tag && tag !== 'all' ? { tag: tag } : {};
+  const tagFilter = tag && tag !== 'all' ? { tags: tag } : {};
 
   const ratingFilter =
     rating && rating !== 'all'

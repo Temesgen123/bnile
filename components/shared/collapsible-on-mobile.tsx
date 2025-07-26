@@ -33,7 +33,7 @@ export default function CollapsibleOnMobile({
         {deviceType === 'mobile' && (
           <Button
             onClick={() => setOpen(!open)}
-            variant="outline"
+            variant={'outline'}
             className="w-full"
           >
             {title}
