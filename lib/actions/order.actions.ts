@@ -152,7 +152,7 @@ async function getSalesChartData(date: DateRange) {
             },
           ],
         },
-        totalsales: 1,
+        totalSales: 1,
       },
     },
     { $sort: { date: 1 } },

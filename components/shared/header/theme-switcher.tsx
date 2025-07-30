@@ -15,12 +15,12 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 
-import userColorStore from '@/hooks/use-color-store';
+import useColorStore from '@/hooks/use-color-store';
 import useIsMounted from '@/hooks/use-is-mounted';
 
 export default function ThemeSwitcher() {
   const { theme, setTheme } = useTheme();
-  const { availableColors, color, setColor } = userColorStore(theme);
+  const { availableColors, color, setColor } = useColorStore(theme);
   const changeTheme = (value: string) => {
     setTheme(value);
   };
@@ -62,8 +62,9 @@ export default function ThemeSwitcher() {
                 style={{ backgroundColor: c?.name }}
                 className="w-4 h-4 mr-1 rounded-full"
               >
-                {c?.name}
+                {' '}
               </div>
+              {c?.name}
             </DropdownMenuRadioItem>
           ))}
         </DropdownMenuRadioGroup>

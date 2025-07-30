@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-object-type */
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
