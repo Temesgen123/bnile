@@ -11,8 +11,8 @@ export function ColorProvider({
   const { theme } = useTheme();
   const { color, updateCssVariables } = userColorStore(theme);
   React.useEffect(() => {
-    console.log('theme, color');
     updateCssVariables();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [theme, color]);
   return <NextThemesProvider {...props}>{children}</NextThemesProvider>;
 }

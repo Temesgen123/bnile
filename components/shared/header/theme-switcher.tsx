@@ -53,16 +53,16 @@ export default function ThemeSwitcher() {
         <DropdownMenuSeparator />
         <DropdownMenuLabel>Color</DropdownMenuLabel>
         <DropdownMenuRadioGroup
-          value={color.name}
+          value={color?.name}
           onValueChange={(value) => setColor(value, true)}
         >
-          {availableColors.map((c) => (
-            <DropdownMenuRadioItem key={c.name} value={c.name}>
+          {availableColors?.map((c) => (
+            <DropdownMenuRadioItem key={c?.name} value={c?.name}>
               <div
-                style={{ backgroundColor: c.name }}
+                style={{ backgroundColor: c?.name }}
                 className="w-4 h-4 mr-1 rounded-full"
               >
-                {c.name}
+                {c?.name}
               </div>
             </DropdownMenuRadioItem>
           ))}

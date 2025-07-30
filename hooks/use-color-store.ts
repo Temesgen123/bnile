@@ -301,39 +301,39 @@ export const colorStore = create<ColorState>()(
   persist(() => initialState, { name: 'colorStore' })
 );
 
-export default function userColorStore(theme: string = 'light') {
+export default function useColorStore(theme: string = 'light') {
   const colorState = colorStore();
   const getColor = () => {
-    const userColor = colorState.availableColors.find(
-      (t) => t.name === colorState.userColor
+    const userColor = colorState?.availableColors?.find(
+      (t) => t?.name === colorState?.userColor
     );
     if (userColor) return userColor;
-    const defaultColor = colorState.availableColors.find(
-      (t) => t.name === colorState.defaultColor
+    const defaultColor = colorState?.availableColors?.find(
+      (t) => t?.name === colorState?.defaultColor
     );
     if (defaultColor) return defaultColor;
-    return colorState.availableColors[0];
+    return colorState?.availableColors[0];
   };
   const color = getColor();
-  const cssColor: { [key: string]: string } =
-    theme === 'light' ? color.root : color.dark;
+  const cssColors: { [key: string]: string } =
+    theme === 'light' ? color?.root : color?.dark;
 
   return {
     availableColors,
-    cssColor,
+    cssColors,
     color,
     getColor,
     setColor: (name: string, isUserColor?: boolean) => {
-      colorStore.setState(
+      colorStore?.setState(
         isUserColor ? { userColor: name } : { defaultColor: name }
       );
     },
     updateCssVariables: () => {
       const color = getColor();
       const colors: { [key: string]: string } =
-        theme === 'light' ? color.root : color.dark;
+        theme === 'light' ? color?.root : color?.dark;
       for (const key in colors) {
-        document.documentElement.style.setProperty(key, colors[key]);
+        document?.documentElement?.style?.setProperty(key, colors[key]);
       }
     },
   };

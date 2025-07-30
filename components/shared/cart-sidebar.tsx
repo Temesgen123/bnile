@@ -14,12 +14,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from '../ui/select';
-import {TrashIcon } from 'lucide-react';
+import { TrashIcon } from 'lucide-react';
 import ProductPrice from './product/product-price';
 import { FREE_SHIPPING_MIN_PRICE } from '@/lib/constants';
 
-
-export default function CartSiderBar() {
+export default function CartSidebar() {
   const {
     cart: { items, itemsPrice },
     updateItem,
