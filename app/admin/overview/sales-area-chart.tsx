@@ -58,6 +58,7 @@ const STROKE_COLORS: { [key: string]: { [key: string]: string } } = {
   Red: { light: '#980404', dark: '#ff3333' },
   Green: { light: '#015001', dark: '#06dc06' },
   Gold: { light: '#ac9103', dark: '#f1d541' },
+  Blue: { light: '#1E3A8A', dark: '#60A5FA' },
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -77,7 +78,7 @@ export default function SalesAreaChart({ data }: { data: any[] }) {
           dataKey="totalSales"
           stroke={STROKE_COLORS[color.name][theme || 'light']}
           strokeWidth={2}
-          fill={`hsl(${cssColors['--primary']})`}
+          fill={`${cssColors['--primary']}`}
           fillOpacity={0.8}
         />
       </AreaChart>
