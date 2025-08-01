@@ -78,7 +78,7 @@ export async function getOrderSummary(date: DateRange) {
     {
       $group: {
         _id: {
-          $dateToString: { format: '%Y-%m', date: { $toDate: '$createdAt' } },
+          $dateToString: { format: '%Y-%m', date: '$createdAt' },
         },
         totalSales: { $sum: '$totalPrice' },
       },

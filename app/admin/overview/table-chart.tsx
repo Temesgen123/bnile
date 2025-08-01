@@ -40,15 +40,15 @@ export default function TableChart({
   labelType = 'month',
   data = [],
 }: TableChartProps) {
-  const max = Math.max(...data?.map((item) => item.value));
-  const dataWithPercentage = data?.map((x) => ({
+  const max = Math.max(...data.map((item) => item.value));
+  const dataWithPercentage = data.map((x) => ({
     ...x,
     label: labelType === 'month' ? getMonthName(x.label) : x.label,
     percentage: Math.round((x.value / max) * 100),
   }));
   return (
     <div className="space-y-3">
-      {dataWithPercentage?.map(({ label, id, value, image, percentage }) => (
+      {dataWithPercentage.map(({ label, id, value, image, percentage }) => (
         <div
           key={id + label + value}
           className="grid grid-cols-[100px_1fr_80px] md:grid-cols-[250px_1fr_80px] gap-2 space-y-4"
