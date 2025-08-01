@@ -41,7 +41,7 @@ export async function getOrderSummary(date: DateRange) {
   const totalSalesResult = await Order.aggregate([
     {
       $match: {
-        cteatedAt: {
+        createdAt: {
           $gte: date.from,
           $lte: date.to,
         },
