@@ -36,9 +36,9 @@ export default async function Header() {
           <Search />
         </div>
       </div>
-      <div className="flex items-center px-3 mb-[1px] bg-[#000059] ">
+      <div className="flex items-center px-3 mb-[1px] bg-[#000059]  ">
         <Sidebar categories={categories} />
-        <div>
+        <div className="flex items-center flex-wrap gap-3 max-h-[42px]">
           {data.headerMenus.map((menu) => (
             <Link
               key={menu.href}

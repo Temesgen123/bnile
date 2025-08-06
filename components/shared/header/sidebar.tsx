@@ -24,11 +24,11 @@ export default async function Sidebar({
   const session = await auth();
   return (
     <Drawer direction="left">
-      <DrawerTrigger className="header-button flex items-center !p-2">
+      <DrawerTrigger className="header-button flex items-center !p-5 text-white bg-[#000059]">
         <MenuIcon className="h-5 w-5 mr-1" />
         All
       </DrawerTrigger>
-      <DrawerContent className="w-[350px] mt-0 top-0 ">
+      <DrawerContent className="w-[350px] mt-0 top-0 text-white bg-[#000059] !p-5">
         <div className="flex flex-col h-full">
           {
             //   User Signin Section
