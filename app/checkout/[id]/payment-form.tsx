@@ -25,7 +25,7 @@ import StripeForm from './stripe-form';
 //OrderDetailsForm ***
 export default function OrderPaymentForm({
   order,
-  paypalClientId,
+  // paypalClientId,
   clientSecret,
 }: {
   order: IOrder;
@@ -75,7 +75,7 @@ export default function OrderPaymentForm({
   const CheckoutSummary = () => (
     <Card>
       <CardContent className="p-4">
-        <div className=" bg-slate-200 p-2">
+        <div className="  p-2">
           <div className="text-lg font-bold ">Order Summary</div>
           <div className="space-y-2">
             <div className="flex justify-between">
@@ -116,7 +116,8 @@ export default function OrderPaymentForm({
             </div>
             {!isPaid && paymentMethod === 'PayPal' && (
               <div className="">
-                <PayPalScriptProvider options={{ clientId: paypalClientId }}>
+                {/* try clientId: 'test' */}
+                <PayPalScriptProvider options={{ clientId: 'test' }}>
                   <PrintLoadingState />
                   <PayPalButtons
                     createOrder={handleCreatePayPalOrder}
@@ -150,7 +151,7 @@ export default function OrderPaymentForm({
   );
 
   const stripePromise = loadStripe(
-    process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string
+    process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string,
   );
   return (
     <main className="max-w-6xl mx-auto">
