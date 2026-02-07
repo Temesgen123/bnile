@@ -1,7 +1,7 @@
 import { IOrderInput } from '@/types';
-import { Document, Model, model, models, Schema } from 'mongoose';
+import { Model, model, models, Schema } from 'mongoose';
 
-export interface IOrder extends Document, IOrderInput {
+export interface IOrder extends IOrderInput {
   _id: string;
   createdAt: Date;
   updatedAt: Date;
@@ -57,7 +57,7 @@ const OrderSchema = new Schema<IOrder>(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 const Order =

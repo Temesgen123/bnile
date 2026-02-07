@@ -48,7 +48,7 @@ const CustomToolTip: React.FC<CustomTooltipProps> = ({
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const CustomXAxisTick: React.FC<any> = ({ x, y, payload }) => {
   return (
-    <text x={x} y={y + 10} textAnchor="left" fill="#888" className="text-sm">
+    <text x={x} y={y + 10} textAnchor="start" fill="#888" className="text-sm">
       {formatDateTime(new Date(payload.value)).dateOnly}
     </text>
   );

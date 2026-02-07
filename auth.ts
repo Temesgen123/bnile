@@ -7,7 +7,7 @@ import client from './lib/db/client';
 import User from './lib/db/models/user.model';
 
 import NextAuth, { type DefaultSession } from 'next-auth';
-import authConfig from './auth.config';
+import { authConfig } from './auth.config';
 
 declare module 'next-auth' {
   interface Session {
@@ -48,7 +48,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         if (user && user.password) {
           const isMatch = await bcrypt.compare(
             credentials.password as string,
-            user.password
+            user.password,
           );
           if (isMatch) {
             return {

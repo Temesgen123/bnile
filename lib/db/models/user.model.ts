@@ -1,7 +1,7 @@
 import { IUserInput } from '@/types';
-import { Document, Model, model, models, Schema } from 'mongoose';
+import { Model, model, models, Schema } from 'mongoose';
 
-export interface IUser extends Document, IUserInput {
+export interface IUser extends IUserInput {
   _id: string;
   createdAt: Date;
   updatedAt: Date;
@@ -18,7 +18,7 @@ const userSchema = new Schema<IUser>(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 const User = (models.User as Model<IUser>) || model<IUser>('User', userSchema);
